@@ -6,7 +6,10 @@
             agent any
             steps {
               withSonarQubeEnv('Sona_TOKEN') {
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn sonar:sonar \
+                      -Dsonar.projectKey=devops-app \
+                      -Dsonar.host.url=http://3.108.44.156:9000 \
+                      -Dsonar.login=b8251b666cc7bb382fce47a8b2161541c2f3951f'
               }
             }
           }
